@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành DOM</title>
+</head>
+<body>
+    <h1 id="the_h1" style="color: red;">Tiêu đề web</h1>
+    <script>
+        var the_h1 = document.querySelector("#the_h1");
+        console.dir(document);
+        // in ra danh sách thuộc tính thẻ h1
+        console.log(the_h1.attributes)
+        // gán giá trị cho thuộc tính
+        the_h1.setAttribute("style","color:blue");
+        // lấy thẻ head từ thẻ h1 --> tìm đén thẻ cha (body) --> lấy thẻ anh của body
+        var ds_the_head = the_h1.parentElement.previousElementSibling;
+        console.log(ds_the_head)
+        ds_the_head = ds_the_head.childNodes;// lấy các thẻ con của thẻ head.
+        console.log(ds_the_head)
+
+        var the_title = ds_the_head[7];
+        console.log(the_title.innerHTML);
+    </script>
+</body>
+</html>

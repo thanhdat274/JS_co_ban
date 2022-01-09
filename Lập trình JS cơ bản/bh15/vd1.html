@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>thực hàng vuejs</h1>
+
+    <div id="app">
+        {{thongbao}}
+        <br>
+        <h2 v-bind:title="monhoc">Môn học: {{monhoc}}</h2>
+        <img v-bind:src="url_anh">
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var opt = {
+            el:"#app", // el: elment
+            data:{
+                thongbao: "Hôm nay học framewwork",
+                monhoc:  "JS cơ bản",
+                url_anh: "https://vi.vuejs.org/images/logo.png"
+            }
+        }
+        // khởi tạo đối tượng vue để chạy ứng dụng
+        var obj = new Vue(opt);
+
+    </script>
+</body>
+</html>

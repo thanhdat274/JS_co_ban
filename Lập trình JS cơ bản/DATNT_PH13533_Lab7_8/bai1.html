@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="form">
+        <p>
+            <label for="ho">Họ</label>
+            <input type="text" id="ho" v-model="ho">
+        </p>
+        <p>
+            <label for="ten">Tên</label>
+            <input type="text" id="ten" v-model="ten">
+        </p>
+        <p>
+            <label for="ns">Ngày sinh</label><br>
+            Ngày <input type="number" min="1" max="31" id="ngay" v-model="day">
+            Tháng <input type="number" min="1" max="12" id="thang" v-model="month">
+            Năm <input type="number" min="1900" max="2050" id="nam" v-model="year">
+        </p>
+        <p>
+            <label for="gt">Giới tính</label>
+            <input type="radio" name="gt" id="gt" value="Nam" v-model="chon">
+            <label for="nam">Nam</label>
+            <input type="radio" name="gt" id="gt" value="Nữ"  v-model="chon">
+            <label for="nu">Nữ</label>
+        </p>
+        <p>
+            <label>Số điện thoại</label>
+            <input type="text" name="phone" v-model="phone">
+        </p>
+        <p>
+            <label>Sở thích: </label>
+            <input type="checkbox" id="doc-sach" value="Đọc sách" v-model="st">
+            <label for="doc-sach">Đọc sách</label>
+            <input type="checkbox" id="xem-phim" value="Xem phim" v-model="st">
+            <label for="xem-phim">Xem phim</label>
+            <input type="checkbox" id="nghe" value="Nghe" v-model="st">
+            <label for="nghe">Nghe</label> <br>
+            <input type="checkbox" id="da-bong" value="Đá bóng" v-model="st">
+            <label for="da-bong">Đá bóng</label>
+            <input type="checkbox" id="may-va" value="May vá" v-model="st">
+            <label for="may-va">May vá </label><br>
+            <input type="checkbox" id="chk-khac" onchange="showHide(this)" v-model="st" >
+            <label for="khac">Khác</label> <br>
+            <input type="text" name="" id="st_khac" style="display: none;" v-model="stk">
+        </p>
+        <h2>Họ: {{ho}}</h2>
+        <h2>Tên: {{ten}}</h2>
+        <h2>Ngày sinh: {{day}}/{{month}}/{{year}}</h2>
+        <h2>Giới tính: {{chon}}</h2>
+        <h2>Số điện thoại: {{phone}}</h2>
+        <h2>Sở thích: {{st}} {{stk}}</h2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = {
+            el: "#form",
+            data: {
+                ho: "",
+                ten: "",
+                day: "",
+                month: "",
+                year: "",
+                chon: "",
+                phone: "",
+                st: [],
+                stk: ""
+            }
+        }
+        var app = new Vue(app);
+
+
+
+        function showHide(objChk) {
+            if (objChk.checked) {
+                document.querySelector("#st_khac").style.display = "block";
+            } else {
+                document.querySelector("#st_khac").style.display = "none";
+                document.querySelector("#st_khac").value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

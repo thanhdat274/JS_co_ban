@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // thuộc tính về chieudai, chieurong
+        // phuong thúc nhập, dientich, chuvi
+        var HINHCN = new Object();
+        HINHCN.id = 1;
+        HINHCN.Nhap = function () {
+            this.chieuDai = Number(prompt("NHập chiều dài: "));
+            this.chieuRong = Number(prompt("Nhập chiều rộng: "));
+        }
+
+        HINHCN.DienTich = function () {
+            return (this.chieuDai * this.chieuRong);
+        }
+
+        HINHCN.ChuVi = function () {
+            return (this.chieuDai + this.chieuRong) * 2;
+        }
+
+        HINHCN.Nhap();// gọi phương thức
+
+        document.write("Diện tích = " + HINHCN.DienTich());
+
+        document.write("<br>Chu vi = " + HINHCN.ChuVi());
+
+        console.log(HINHCN);
+
+
+    </script>
+</body>
+
+</html>

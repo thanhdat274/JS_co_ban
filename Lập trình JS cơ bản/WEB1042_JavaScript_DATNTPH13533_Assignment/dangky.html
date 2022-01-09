@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dăng kí</title>
+    <link rel="stylesheet" href="css/dangky.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <div id="header">
+            <a href=""><img src="anh/Banner1-1.jfif" alt="" height="200px" width="980px"></a>
+        </div>
+
+        <div id="menu">
+            <div class="book">
+                <a href="bstanh.html">Bộ sưu tập ảnh</a>
+            </div>
+
+            <div id="active" class="book">
+                <a href="dangky.html">Đăng kí</a>
+            </div>
+
+            <div class="book">
+                <a href="banhang.html">Bán hàng</a>
+            </div>
+        </div>
+
+        <div id="connent">
+            <h1 class="tieude">ĐĂNG KÍ THÀNH VIÊN</h1>
+            <div class="hoptin">
+                <form action="" onsubmit="return kiemtra()">
+                    <label for="masv">Mã sinh viên: </label>
+                    <input type="text" name="masv" id="masv">
+                    <div id="error1" class="error"></div>
+            
+                    <label for="mane">Họ và tên: </label>
+                    <input type="text" name="name" id="name">
+                    <div id="error2" class="error"></div>
+    
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email">
+                    <div id="error3" class="error"></div>
+   
+                    <label for="GT">Giới tính: </label>
+                    <div class="hop">
+                        <input type="radio" name="GT"><span>Nam</span>
+                        <input type="radio" name="GT"><span>Nữ</span>
+                    </div>
+                    <div id="error4" class="error"></div>
+                    <label for="subject">Sở thích: </label>
+                    <div class="hop">
+                        <input class="sothich" type="checkbox"><span>Đọc sách</span>
+                        <input class="sothich" type="checkbox"><span>Du lịch</span>
+                        <input class="sothich" type="checkbox"><span>Âm nhạc</span>
+                        <input class="sothich" type="checkbox"><span>Ẩm thực</span>
+                        <input class="sothich" type="checkbox"><span>Khác</span>
+                    </div>
+                    <div id="error5" class="error"></div>
+                    <label for="quoctich">Quốc tịch</label>
+                    <select name="quoctich" id="quoctich">
+                        <option value="0">Chọn quốc tịch</option>
+                        <option value="1">Việt Nam</option>
+                        <option value="2">Thái Lan</option>
+                        <option value="3">Lào</option>
+                        <option value="4">Trung Quốc</option>
+                        <option value="5">Hàn Quốc</option>
+                    </select>
+                    <div id="error6" class="error"></div>
+                    <label for="text">Ghi chú: </label>
+                    <textarea name="text" id="note" rows="5" maxlength="200"></textarea>
+                    <div id="error7" class="error"></div>
+                    <br>
+                    <button>Đăng kí</button>
+                </form>
+            </div>
+        </div>
+        <div id="footer">@CAO ĐẲNG THỰC HÀNH FPT POLYTECHNIC 2021.</div>
+    </div>
+    <script src="js/dangki.js"></script>
+</body>
+
+</html>

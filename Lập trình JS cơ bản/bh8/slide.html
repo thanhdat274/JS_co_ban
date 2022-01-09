@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="img_slide" width="200" height="200" src="slide/a1.jfif" />
+    <button onclick="STOP()">Stop</button>
+    <button onclick="START()">Start</button>
+    <script>
+        var mang_anh = ['slide/a1.jfif', 'slide/a2.jfif', 'slide/a3.jfif'];
+        var stt = 0;
+        var intv;
+        /*
+        intv = setInterval(function(){
+            stt ++;
+            if(stt == mang_anh.length)
+                stt = 0;
+
+            document.querySelector("#img_slide").src = mang_anh[stt];
+            
+        }, 1000);
+        */
+
+        function STOP() {
+            clearInterval(intv);
+        }
+        function START() {
+            intv = setInterval(function () {
+                stt++;
+                if (stt == mang_anh.length)
+                    stt = 0;
+
+                document.querySelector("#img_slide").src = mang_anh[stt];
+
+            }, 1000);
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>

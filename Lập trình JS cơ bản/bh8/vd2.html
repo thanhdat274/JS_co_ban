@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function HINHCN(dai, rong) {
+            this.chieuDai = dai;
+            this.chieuRong = rong;
+
+            this.DIenTich = function () {
+                return (this.chieuDai * this.chieuRong);
+
+            }
+        }
+        // sử dụng hàm khuôn mẫu đẻ tạo đối tượng 
+        var obj1 = new HINHCN(6, 2);
+        document.write("Diện tích 1 = " + obj1.DIenTich());
+
+        var obj2 = new HINHCN(20, 3);
+        document.write("<br>Diện tích 2 = " + obj2.DIenTich());
+
+        console.log(obj1);
+        console.log(obj2);
+    </script>
+</body>
+
+</html>

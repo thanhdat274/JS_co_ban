@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <p onmouseover="_hover()" onmouseout="_out()" onclick="nhan()">Dòng 1</p>
+    <p id="d2" >Dòng 2</p>
+    <script>
+        // khi hover vào dòng 1 thì chữ thành màu xanh
+        // khi không hoverr thì dòng 1 chữ có màu đỏ
+        /// thay đổi dịnh dạng cho element node
+        // onmouseover đưa chuột vào
+        // onmouseout đây là khi đưa chuột ra
+        function _hover(){
+            var dong1 = document.getElementsByTagName("p");
+            dong1[0].style.color = "green";
+        }
+        function _out(){
+            var dong1 = document.querySelector("p");
+            dong1.style.color = "red";
+            
+        }
+        //khi click vào dòng 1 thì dòng 2 biến mất
+        function nhan(){
+            var d2 = document.querySelector("#d2").style.display = "none";
+        }
+    </script> -->
+
+    <!-- <div id="container">
+
+    </div>
+    <button type="button" onclick="xoa()">Xóa</button>
+
+    <script>
+        var theH1 = document.createElement("h1");
+        // thêm nội dung cho thẻ
+        theH1.innerHTML = "HiHiHi";
+        // xác đinh node cha
+        var theDiv = document.getElementById("container");
+        // thêm node con vào node cha
+        theDiv.appendChild(theH1);
+
+        // thêm thuộc tính cho element node
+        // thêm thuộc tính id cho theH1
+        theH1.setAttribute("id", "idH1");
+        theH1.setAttribute("web1042", "Chào các bạn");
+        // Lấy giá trị của thuộc tính
+        var msg = theH1.getAttribute("web1042");
+        alert(msg);
+        // xóa element node
+        function xoa() {
+            document.body.removeChild(theDiv);
+        }
+    </script> -->
+
+    <p>
+        Tên sản phẩm: <label id="lbliPhone">iPhone 12 Pro Max</label>
+    </p>
+    <p>
+        Số lượng <input type="number" name="soluong">
+    </p>
+    <p>
+        <button type="button" onclick="tinhTien()">Tính tiền</button>
+    </p>
+    <p>
+        Tổng tiền: <span>???</span>
+    </p>
+    <script>
+        //Giá của 1 chiếc iphone là 30tr
+        function tinhTien(){
+            var nhan = document.getElementById("lbliPhone");
+            var slg = document.getElementsByName("soluong");
+            var kq = document.querySelector("span");
+            nhan.setAttribute("gia","30000000");
+            var gia = nhan.getAttribute("gia");
+            var tongTien = slg[0].value * Number(gia);
+            kq.innerHTML = tongTien;
+        }
+
+    </script>
+</body>
+
+</html>

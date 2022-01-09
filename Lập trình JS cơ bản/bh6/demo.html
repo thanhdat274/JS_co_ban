@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // nhập 1 số a <10 và in ra các số nguyên từ a đến 10
+        var a= prompt("Nhập số a: ");
+        var x=a;
+        document.write("<br>Dùng lệnh while");
+        while(x<=10){
+            document.write("<br>"+ x);
+            x++;
+        }
+        // x = 11
+        // document.write("<br>"+ x);
+        //=================================================
+        x=a;
+        document.write("<br>Dùng lệnh Do.......while");
+        do{
+            document.write("<br>"+ x);
+            x++;
+        }while(x<=10)
+        //=======================================
+        x=a;
+        document.write("<br>Dùng lệnh for");  
+        for(i = x;i<=10;i++){
+            document.write("<br>"+ i);
+        }    
+
+
+    </script>
+</body>
+</html>

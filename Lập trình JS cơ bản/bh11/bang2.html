@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table id="bang" border="1" cellpadding="10">
+        <tr>
+            <td>Ma sp</td>
+            <td>Ten sp</td>
+            <td>Số lượng</td>
+            <td>Giá tiền</td>
+            <td>Thành tiền</td>
+        </tr>
+        <tr>
+            <td>SP1</td>
+            <td>Điện thoại</td>
+            <td>2</td>
+            <td>200</td>
+            <td>.....</td>
+        </tr>
+        <tr>
+            <td>SP2</td>
+            <td>Máy tính</td>
+            <td>3</td>
+            <td>100</td>
+            <td>....</td>
+        </tr>
+    </table>
+    <h3 id="soluong">Tổng số lượng sản phẩm: </h3>
+
+    <script>
+        var tong_so_luong = 0;
+        var tong_tien = 0;
+        var bang = document.querySelector("#bang");
+        var list_tr = bang.querySelectorAll("tr");
+        console.log(list_tr);
+        //duyệt danh sách để truy cập vào mảng 
+        for(i =1;i<list_tr.length;i++){
+            // console.log(list_tr[i]);
+            var tr = list_tr[i];
+            // láy ds thẻ td trong dong
+            var list_td = tr.querySelectorAll("td");
+            console.log(list_td)
+            var so_luong = list_td[2].innerText;
+            tong_so_luong += Number(so_luong);
+
+            // tính tiền
+            var tien = Number(list_td[2].innerText)*Number(list_td[3].innerText);
+            list_td[4].innerText = tien;
+            tong_tien +=tien;
+
+        }
+        console.log(tong_so_luong)
+        console.log("Tong tien = " + tong_tien)
+        // gán số lượng vào thẻ h3
+        var txt = document.createTextNode(tong_so_luong);
+        document.querySelector("#soluong").appendChild(txt);
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

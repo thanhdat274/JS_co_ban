@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+}
+
+.wrapper {
+    width: 980px;
+    margin: auto;
+}
+
+.header {
+    height: 80px;
+    padding: 10px;
+    margin-top: 2px;
+}
+
+.book {
+    width: 307px;
+    float: left;
+    text-align: center;
+    line-height: 60px;
+    background: #fff;
+    margin-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+
+.book a {
+    color: #000;
+    text-transform: uppercase;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+}
+
+.book1 {
+    width: 307px;
+    float: left;
+    text-align: center;
+    line-height: 60px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.book1 a {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+}
+
+.book a:hover {
+    background: #000;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.book1 a:hover {
+    background: #000;
+    color: #fff;
+    border-radius: 10px;
+}
+
+#active {
+    background: #000;
+}
+
+/* phần connent */
+
+.connent {
+    width: 980px;
+    margin: auto;
+    border: 1px solid #000;
+}
+
+.tieude {
+    text-align: center;
+    margin: 20px;
+}
+
+.box {
+    width: 500px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+form {
+    margin-left: 20px;
+}
+
+input[type=text], input[type=email] {
+    width: 500px;
+    padding: 8px 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.hop {
+    width: 500px;
+    margin: 10px 0;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+span {
+    margin: 0 10px 0 0;
+}
+
+input[type=radio], input[type=checkbox] {
+    margin-right: 5px;
+}
+
+select {
+    width: 500px;
+    margin: 10px 0;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 8px;
+    display: block;
+}
+
+button {
+    width: 500px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 8px;
+    font-size: 18px;
+    color: #fff;
+    background: rgb(32, 231, 32);
+}
+
+.error {
+    font-size: 14px;
+    color: red;
+}

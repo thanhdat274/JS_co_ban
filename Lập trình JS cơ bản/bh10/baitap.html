@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Họ tên <input type="text" id="hoten"/> 
+    <button onclick="Them()">Thêm</button>
+    <h3>Danh sách</h3>
+    <ol id="ds">
+        <li>NVA</li>
+    </ol>
+    <script>
+        function Them(){
+            var ht = document.querySelector("#hoten").value;
+
+            var the_li = document.createElement("LI");
+            the_li.innerHTML = ht;
+            document.querySelector("#ds").appendChild(the_li);
+        }
+
+    </script>
+</body>
+</html>

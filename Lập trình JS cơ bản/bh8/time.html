@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="clrTime()">Clear Timeout</button>
+    <script>
+
+        //  setTimeout(  "alert('abc')"    , 3000 );
+        var t = setTimeout(function () {
+            document.write("<h1>Xin chào</h1>");
+
+        }, 3000);
+
+        function clrTime() {
+            console.log("Clear timeout");
+            clearTimeout(t)
+        }
+
+    </script>
+</body>
+
+</html>

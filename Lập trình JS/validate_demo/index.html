@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra tính hợp lệ</title>
+    <link rel="stylesheet" href="form-style.css">
+</head>
+
+<body>
+    <form name="frmReg" onsubmit="return validate()">
+        <h2>Đăng ký thông tin</h2>
+        <div class="row">
+            <label>Họ tên sinh viên</label>
+            <input type="text" name="txtName">
+            <div class="error" id="nameErr"></div>
+        </div>
+        <div class="row">
+            <label>Đại chỉ email</label>
+            <input type="text" name="txtEmail">
+            <div class="error" id="emailErr"></div>
+        </div>
+        <div class="row">
+            <label>Điện thoại</label>
+            <input type="text" name="txtMobile">
+            <div class="error" id="mobileErr"></div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Đăng ký">
+        </div>
+    </form>
+    <script>
+        function validate(){
+            var txtName = document.frmReg.txtName.value;
+            var txtEmail = document.frmReg.txtEmail.value;
+            var txtMobile = document.frmReg.txtMobile.value;
+            ///---------
+            var msgName = document.getElementById("nameErr");
+            var msgEmail = document.getElementById("emailErr");
+            var msgMobile = document.getElementById("mobileErr");
+            //----------
+            var conloiName = true;
+            var conloiEmail = true;
+            var conloiMobile = true;
+
+            //Validate name
+            if(txtName == ""){
+                msgName.innerHTML = "Họ tên ko đc để trống";
+            }else{
+                msgName.innerHTML = "";
+                conloiName = false;
+            }
+            // validate số điện thoại
+            var regex = /^0[0-9]{9}$/;
+            if(regex.test(mobile) == false){
+                msgMobile.innerHTML = "sai định dạng số điện thoại";
+            }else{
+                msgMobile.innerHTML = "";
+                conloiMobile = false;
+            }
+            ///--------
+            var regex = /^0[0-9]{9}$/;
+            if(regex.test(mobile) == false){
+                msgEmail.innerHTML = "sai định dạng số điện thoại";
+            }else{
+                msgEmail.innerHTML = "";
+                conloiEmail = false;
+            }
+            
+            
+            if (conloiName == true || conloiEmail == true || conloiMobile == true) {
+                return false;
+            }
+            else {
+                return true;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

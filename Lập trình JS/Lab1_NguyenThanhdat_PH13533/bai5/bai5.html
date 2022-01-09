@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = prompt("Mời bạn nhập vào a: ");
+        a = Number(a);
+        var b = prompt("Mời bạn nhập vào b: ");
+        b = Number(b);
+
+        function Tong(a,b){
+            return a + b;
+        }
+        function hieu(a,b){
+            return a - b;
+        }
+        function tich(a,b){
+            return a * b;
+        }
+        function thuong(a,b){
+            return a / b;
+        }
+        document.write("Tổng: " + Tong(a,b));
+        document.write("<br>Hiệu: " + hieu(a,b));
+        document.write("<br>Tích: " + tich(a,b));
+        document.write("<br>Thương: " + thuong(a,b));
+
+    </script>
+</body>
+</html>

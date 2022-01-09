@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <form action="" method="POST" onsubmit="return checkForm()">
+        Username <input type="text" name="uname" id="uname"> <br>
+        Passwword <input type="password" name="pass" id="pass"> <br>
+        <button type="submit">Login</button>
+    </form>
+    <script>
+        function checkForm(){
+            var uname = document.querySelector("#uname").value;
+            var pass = document.querySelector("#pass").value;
+            var check = true;
+            // kiểm tra ở đây
+            // điều kiện yêu cầu trả cả user và pass phải nhập ít nhật 3 kí tự
+            if(uname.length < 3){
+                check = false;
+            }
+            if(pass.length < 3){
+                check = false;
+            }
+            // nếu không có lỗi thì thông báo ok
+            if(check){
+                alert("Bạn đã nhập đúng");
+            }else{
+                alert("Bạn cần nhập lại");
+            }
+            
+            return check;
+
+        }
+    </script>
+</body>
+
+</html>

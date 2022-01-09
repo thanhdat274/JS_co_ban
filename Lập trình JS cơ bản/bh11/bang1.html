@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        Mã sp <input type="text" id="masp"><br>
+        Tên sp <input type="text" id="tensp"><br>
+        <button type="button" onclick="Them()">Thêm</button>
+    </form>
+
+    <table id="bang" border="1" cellpadding="10">
+        <tr>
+            <td>mã sp</td>
+            <td>Tên sp</td>
+            <td>Chức năng</td>
+        </tr>
+    </table>
+
+    <script>
+        function Them() {
+            var ma_sp = document.querySelector("#masp").value;
+            var ten_sp = document.querySelector("#tensp").value;
+            // lấy thẻ bảng
+            var bang = document.querySelector("#bang");
+            // tạo dòng 
+            var TR = document.createElement("TR");
+            var TD1 = document.createElement("TD");//tạo ô mới
+            TD1.innerText = ma_sp; // gắn nội dung cho ô mới
+            TR.appendChild(TD1); // gắn ô mới vào dòng
+
+            var TD2 = document.createElement("TD");//tạo ô mới
+            TD2.innerText = ten_sp; // gắn nội dung cho ô mới
+            TR.appendChild(TD2); // gắn ô mới vào dòng
+
+            var TD3 = document.createElement("TD");
+            var btn_xoa = document.createElement("button");
+            btn_xoa.innerText = "xóa";
+            btn_xoa.onclick = function () {
+                this.parentNode.parentNode.remove();
+
+            }
+            TD3.appendChild(btn_xoa); // đưa nút bấm vào trong ô 3
+            TR.appendChild(TD3); // đưa td3 vào dòng
+
+            bang.appendChild(TR);
+
+        }
+    </script>
+</body>
+
+</html>

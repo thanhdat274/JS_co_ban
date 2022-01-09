@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.firebase.com/v0/firebase.js"></script> -->
+    <script src="https://code.angularjs.org/1.8.0/angular.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+</head>
+
+<body ng-app="appChat">
+    <!-- <script>
+        var data = new Firebase("https://database-1212-default-rtdb.firebaseio.com/");
+        data.set({
+            node1: "test"
+        });
+        data.on("child_added", function (value) {
+            document.writeln(value.val());
+        });
+    </script> -->
+
+    <div ng-controller="ctrlChat">
+        <p>
+            Name <input type="text" placeholder="Name" ng-model="name">
+        </p>
+        <p>
+            Message <input type="text" placeholder="message" ng-model="msg" ng-keydown="send($event)">
+        </p>
+        <h4>Chatting as, {{name}}</h4>
+        <p ng-repeat="item in arrMsg">
+            <b>{{item.name}}</b> :{{item.msg}}
+        </p>
+    </div>
+
+    <script>
+        var app = angular.module("appChat", ["firebase"]);
+        app.controller("ctrlChat", function ($scope, $firebaseArray) {
+            var data = new Firebase("https://database-1212-default-rtdb.firebaseio.com/");
+            // tạo mảng dữ liệu (lấy dữ liệu từ CSDL firebase)
+            $scope.arrMsg = $firebaseArray(data);
+            $scope.send = function (e) {
+                if (e.keyCode === 13) {
+                    data.ref().push({
+                        name: $scope.name,
+                        msg: $scope.msg
+                    });
+                    $scope.msg = "";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

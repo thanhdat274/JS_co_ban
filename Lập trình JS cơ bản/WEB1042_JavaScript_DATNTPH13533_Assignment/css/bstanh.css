@@ -1,0 +1,46 @@
+#connent {
+    width: 980px;
+    height: 500px;
+    background: #a3a3a3;
+    margin-top: 5px;
+}
+#anh{
+    width: 50%;
+    height: 70%;
+    margin: 20px;
+}
+.slideshow{
+	width: 800px;
+	height: 400px;
+	border-radius: 8px;
+	margin-left: 100px;
+	text-align: center;
+	position: relative;
+}
+ .slideshow p{
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 25px;
+}
+#privious{
+	position: absolute;
+	top: 150px;
+	left: 100px;
+	border-radius: 10px 0 0 10px;
+}
+#next{
+	position: absolute;
+	top: 150px;
+	right: 100px;
+	border-radius: 0 10px 10px 0;
+}
+.go{
+	width: 50px;
+	height: 35px;
+	border: 1px solid #fff;
+	box-shadow: inset 5px 5px 25px #fff;
+	line-height: 35px;
+}
+.go:hover{
+	background: #fff;
+}

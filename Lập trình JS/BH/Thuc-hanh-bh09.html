@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <p></p>
+    <p></p>
+    <p></p>
+    <script>
+        // truy cập tới element node p, sau đó:
+        // thẻ p đầu tiên ghi chữ : huhu
+        // thẻ p thẻ 2 ghi chữ : hihi
+        // thẻ p thứ 3 ghi chữ : Haha
+        var the = document.querySelectorAll("p");
+        the[0].innerHTML = "huhu";
+        the[1].innerHTML = "hihi";
+        the[2].innerHTML = "haha";
+        // the.innerHTML = "hihi";
+        // the.innerHTML = "haha";
+    </script> -->
+
+    Số 1 <input type="text" id="so1">
+    Số 2 <input type="text" id="so2">
+    <button type="button" onclick="tingTong()">Tính tổng</button>
+    <p>
+        Kết quả: <b>???</b>
+    </p>
+    <script>
+        // truy xuất đến element của input số 1
+        function tingTong() {
+            var so1 = document.querySelector("#so1");
+            var so2 = document.querySelector("#so2");
+            var kq = document.querySelector("b");
+            var tong = Number(so1.value) + Number(so2.value);
+            kq.innerHTML = tong;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="ptb2.giai()">Giải</button>
+    <script>
+        var ptb2 = new Object();
+        ptb2.a = prompt("Hệ số a");
+        ptb2.a = Number(ptb2.a);
+        ptb2.b = prompt("Hệ số b");
+        ptb2.b = Number(ptb2.b);
+        ptb2.c = prompt("Hệ số c");
+        ptb2.c = Number(ptb2.c);
+        ptb2.giai = function () {
+            var delta = Math.pow(ptb2.b, 2) - 4 * ptb2.a * ptb2.c;
+            if (delta > 0) {
+                var x1 = (-ptb2.b + Math.sqrt(delta)) / (2 * ptb2.a);
+                var x2 = (-ptb2.b - Math.sqrt(delta)) / (2 * ptb2.a);
+                document.write("Nghiệm thứ nhất x1= " + x1 + " Nghiệm thứ hai x2+ " + x2);
+            } else if (delta == 0) {
+                var x0 = -ptb2.b / (2 * ptb2.a);
+                document.write("Phường trình có nghiệm kép: x1= x2=  " + x0);
+            } else {
+                document.write("Phương trình vô nghiệm");
+            }
+        }
+    </script>
+</body>
+
+</html>

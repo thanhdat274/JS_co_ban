@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Đăng kí</h1>
+    <form action="" onsubmit="return kiem_tra()">
+        <p>
+            Tên đăng nhập <input type="text" name="name" id="name">
+        <div id="er1"></div>
+        </p>
+        <p>
+            Mật khẩu <input type="password" name="password" id="pass">
+        <div id="er2"></div>
+        </p>
+        <p>
+            Nhập lại mật khẩu <input type="password" name="password" id="pass1">
+        <div id="er3"></div>
+        </p>
+        <button type="submit" name="sub">Đăng nhập</button>
+
+    </form>
+    <script>
+        function kiem_tra() {
+            var name = document.getElementById("name");
+            var pass = document.getElementById("pass");
+            var pass1 = document.getElementById("pass1");
+
+
+            var er1 = document.getElementById("er1");
+            var er2 = document.getElementById("er2");
+            var er3 = document.getElementById("er3");
+
+            if (name.value.length == "") {
+                name.style.border = "1px solid red";
+                er1.innerHTML = "bạn chưa nhập tên đăng nhập";
+                return false;
+            } else {
+                name.style.border = "";
+                er1.innerHTML = "";
+            }
+
+            // if (pass.value.length == "") {
+            //     pass.style.border = "1px solid red";
+            //     er2.innerHTML = "bạn chưa nhập mật khẩu";
+            //     return false;
+            // } else if (pass.value.length < 3) {
+            //     pass.style.border = "1px solid red";
+            //     er2.innerHTML = "Mật khẩu yếu";
+            //     return false;
+            // } else if (pass.value.length < 8) {
+            //     pass.style.border = "1px solid yellow";
+            //     er2.innerHTML = "Mật khẩu trung bình";
+            // } else {
+            //     pass.style.border = "";
+            //     er2.innerHTML = "";
+            // }
+
+            var regex = /^(?=.*?[A-Z])(?=.*?[0-9]).{8,}$/
+            if (pass.value.length == "") {
+                pass.style.border = "1px solid red";
+                er2.innerHTML = "bạn chưa nhập mật khẩu";
+                return false;
+            } else if (regex.test(pass.value) == false) {
+                pass.style.border = "1px solid red";
+                er2.innerHTML = "Mật khẩu ko đúng định dạng";
+                return false;
+            } else {
+                pass.style.border = "";
+                er2.innerHTML = "";
+            }
+
+            if (pass1.value.length == "") {
+                pass1.style.border = "1px solid red";
+                er3.innerHTML = "bạn chưa nhập mật khẩu";
+                return false;
+            } else if (pass1.value.length != pass.value.length) {
+                pass1.style.border = "1px solid red";
+                er3.innerHTML = "Mật khẩu không khớp";
+                return false;
+            } else {
+                pass1.style.border = "";
+                er3.innerHTML = "";
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #anh{
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body align="center">
+    <button onclick="prev()">Prev</button>
+    <button onclick="next()">Next</button><br>
+   <a href="#"> <img src="anh/anh0.jpeg" id="anh"></a>
+
+    <script>
+        var images = [];
+        for(var i = 0; i < 6;i++){
+            images[i] = new Image();
+            images[i].src = "anh/anh" + i + ".jpg";
+        }
+        var index = 0;
+        setTimeout(() => {
+            
+        }, 1000);
+        function next(){
+            index++;
+            if(index == images.length){
+                index = 0;
+
+            }
+            var anh= document.getElementById("anh");
+            anh.src = images[index].src;
+        }
+        function prev(){
+            index --;
+            if(index < 0){
+                index = images.length - 1;
+            }
+            var anh = document.getElementById("anh");
+            anh.src = images[index].src;
+        }
+      var slide_intv = setInterval(function () {
+                next();
+
+            }, 1000);
+    </script>
+</body>
+</html>

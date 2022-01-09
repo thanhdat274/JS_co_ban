@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        Số a <input type="text" id="txt_a"><br>
+        Số b <input type="text" id="txt_b"><br>
+        <button type="button" onclick="MayTinh.Tong()">Tổng</button>
+        <button type="button" onclick="MayTinh.Hieu()">Hiệu</button>
+        <button type="button" onclick="MayTinh.Tich()">Tích</button>
+        <button type="button" onclick="MayTinh.Thuong()">Thương</button>
+        <h3 id="ketqua"></h3>
+
+    </form>
+    <script>
+        // tạp form có hai ô nhập text, tạo đối tượng máy tính (theo ví dụ 1) có thuộc tính là 2 số a và b. Có các phương thức 
+        // Tong, hieu , tich , thương 
+        // trên form có 4 nút bấm tương ứng 4 phương thức. Khi bấm nút thì gọi phương thức.
+        var MayTinh = new Object();
+        MayTinh.Nhap = function(){
+            this.so_a = Number(document.querySelector("#txt_a").value);
+            this.so_b = Number(document.querySelector("#txt_b").value);
+
+        }
+        MayTinh.Tong = function(){
+            this.Nhap();
+            var t = this.so_a + this.so_b;
+            var kq = document.querySelector("#ketqua");
+            kq.innerHTML = "Tổng " + this.so_a + "+" + this.so_b + "=" + t;
+        }
+        MayTinh.Hieu = function(){
+            this.Nhap();
+            var t = this.so_a - this.so_b;
+            var kq = document.querySelector("#ketqua");
+            kq.innerHTML = "Hiệu " + this.so_a + " - " + this.so_b + "=" + t;
+        }
+        MayTinh.Tich = function(){
+            this.Nhap();
+            var t = this.so_a * this.so_b;
+            var kq = document.querySelector("#ketqua");
+            kq.innerHTML = "Tích " + this.so_a + " x " + this.so_b + "=" + t;
+        }
+        MayTinh.Thuong = function(){
+            this.Nhap();
+            var t = this.so_a/this.so_b;
+            var kq = document.querySelector("#ketqua");
+            kq.innerHTML = "Thương " + this.so_a + " : " + this.so_b + "=" + t;
+        }
+
+    </script>
+</body>
+</html>

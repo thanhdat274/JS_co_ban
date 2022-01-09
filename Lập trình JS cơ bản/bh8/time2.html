@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="startTime()">Start Time</button>
+    <button onclick="stopTime()">Stop Time</button>
+    <h1 id="msg">HẾT THỜI GIAN</h1>
+    <img id="anh" src="https://gv.poly.edu.vn/images/logo.png">
+    <script>
+        // có 2 nút bấm 
+        // start, stop
+        var t;
+        function startTime(){
+            document.querySelector("#msg").innerHTML= "Bát đầu đợi.....";
+            t = setTimeout(  function(){
+                document.querySelector("#msg").innerHTML= "Hết thời gian";
+                document.querySelector("#anh").src = "https://gv.poly.edu.vn/images/logo.png" 
+            }, 3000  );
+            console.log(t);
+
+        }
+        function stopTime(){
+            document.querySelector("#msg").innerHTML= "Xóa Time";
+            clearTimeout(t)
+            console.log(t);
+            
+        }
+    </script>
+</body>
+
+</html>

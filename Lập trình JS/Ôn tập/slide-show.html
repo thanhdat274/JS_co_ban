@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .anh {
+            width: 50%;
+        }
+    </style>
+    <h1>Bộ sưu tập ảnh</h1>
+    <img src="anh/anh1.jpg" alt="" class="anh">
+    <p>
+        <button onclick="back()">Back</button>
+        <button onclick="next()">Next</button>
+        <button onclick="play()">Play</button>
+        <button onclick="stop()">Stop</button>
+    </p>
+    <script>
+        var images = [];
+        for (var i = 0; i < 5; i++) {
+            images[i] = new Image();
+            images[i].src = "anh/anh" + (i + 1) + ".jpg";
+        }
+        var index = 0;
+        var anh = document.querySelector("img");
+
+        function back() {
+            index--;
+            if (index < 0) {
+                index = images.length - 1;
+            }
+            anh.src = images[index].src;
+        }
+        function next() {
+            index++;
+            if (index == images.length) {
+                index = 0;
+            }
+            anh.src = images[index].src;
+
+        }
+        var t=0;
+        function play(){
+            t = setInterval(function(){
+                next();
+            },1500);
+        }
+        function stop(){
+            clearInterval(t);
+        }
+    </script>
+</body>
+
+</html>

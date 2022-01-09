@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var ten = prompt("Nhập họ và tên sinh viên: ");
+        ten = String(ten);// ép kiểu sang dang string
+        var Ten = ten.toUpperCase(ten);
+        document.write("<br> Họ và tên của sinh viên đó là: " + Ten);
+        var points = prompt("mời bạn nhập điểm của sinh viên: ");
+        points = Number(points);
+        document.write('<br>Điểm của sinh viên đó là: ' + points);
+        if (points < 5) {
+            document.write("<br>Bạn đã rớt môn");
+        } else {
+            document.write("<br>Bạn đã qua môn");
+        }
+    </script>
+</body>
+
+</html>

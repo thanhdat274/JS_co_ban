@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // // Tạo 1 đối tượng
+        // var phuong = new Object();
+        // // thuộc tính
+        // phuong.maSV= "phuong1234";
+        // phuong.hoTen = "Nguyễn Thu Phương";
+        // phuong.diem= 8;
+        // // Phương thức
+        // phuong.ketQua = function(){
+        //     if(phuong.diem >=5) return "Đỗ";
+        //     else return "Trượt";
+        // }
+        // console.log(phuong.ketQua());
+
+        //-----------------------
+        // Tạo lớp<----------- SinhVien
+
+
+        // tạo ra lớp động vật bao gòm các thuộc tính 
+        // thuọc tính tenloai, sochan
+        // Phương thức tienkeu()
+        // tạp ra 3 đói tượng từ lớp động vật 
+        function DongVat(tenLoai, soChan) {
+            this.tenLoai = tenLoai;
+            this.soChan = soChan;
+            this.tiengKeu = function () {
+                if (this.tenLoai == "Mèo") {
+                    return "meomeo";
+                } else if (this.tenLoai == "Chó") {
+                    return "Gâu Gâu";
+                }
+            }
+
+        }
+        DongVat["Mèo"] = new DongVat("Mèo", 4);
+        DongVat["Chó"] = new DongVat("Chó", 4);
+        // document.write(DongVat["Chó"].tiengKeu());
+
+
+        var chinh = new DongVat("heo", 4);
+        // //Duyệt qua các đối tượng
+        // for (var item in DongVat) {
+        //     alert(DongVat[item].tenloai);
+        // }
+
+
+        function SinhVien(maSV, hoTen, diem1, diem2) {
+            this.maSV = maSV;
+            this.hoTen = hoTen;
+            this.diem1 = diem1;
+            this.diem2 = diem2;
+            this.diemTB = function () {
+                return (this.diem1 + this.diem2) / 2;
+            }
+        }
+        SinhVien["sv0"] = new SinhVien("Ph134", "Nguyễn Thanh Bình", 5, 7);
+        SinhVien["sv1"] = new SinhVien("Ph134", "Nguyễn Thanh Công", 8, 6);
+        SinhVien["sv2"] = new SinhVien("Ph134", "Nguyễn Thành An", 3, 5);
+        // hiển thị ra màn hình chi tiết của 3 sinh viên đó ra màn hình (mã, tên, điêm tb )
+        for (var item in SinhVien) {
+            document.write( "Mã sinh viên: " +SinhVien[item].maSV + "<br>");
+            document.write( "tên sinh viên: " +SinhVien[item].hoTen + "<br>");
+            document.write( "Điểm TB sinh viên: " +SinhVien[item].diemTB() + "<br><br><br>");
+        }
+        // sắp xếp sinh viên theo chiều tăng dàn của điểm TB
+
+
+
+    </script>
+</body>
+
+</html>

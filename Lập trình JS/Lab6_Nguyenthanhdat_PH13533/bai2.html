@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            width: 500px;
+            margin: auto;
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .error {
+            font-size: 14px;
+            color: red;
+        }
+
+        button {
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Form Đăng kí</h1>
+        <form onsubmit="return kiem_tra()">
+            <p>
+                <label>Họ</label>
+                <input type="text" name="ho" id="ho" placeholder=" Họ">
+            <div id="error1" class="error"></div>
+            </p>
+            <p>
+                <label for="">Tên</label>
+                <input type="text" name="ten" id="ten" placeholder=" Tên">
+            <div id="error2" class="error"></div>
+            </p>
+            <p>
+                <label for="">Ngày sinh</label>
+            <div class="hop">
+                Ngày <input type="number" min="1" max="31" id="ngay">
+                Tháng <input type="number" min="1" max="12" id="thang">
+                Năm <input type="number" min="1000" max="2050" id="nam">
+                <div id="error3" class="error"></div>
+            </div>
+            </p>
+            <p>
+                <label for="">Giới tính</label>
+                <input type="radio" name="gt"><span>Nam</span>
+                <input type="radio" name="gt"><span>Nữ</span>
+            <div id="error4" class="error"></div>
+            </p>
+            <p>
+                <label for="">Số điện thoại </label>
+                <input type="text" name="sdt" id="sdt" placeholder=" Số điện thoại">
+            <div id="error5" class="error"></div>
+            </p>
+            <p>
+                <label for="">Sở thích</label>
+            <div class="hop2">
+                <input class="sothich" type="checkbox">Đọc sách
+                <input class="sothich" type="checkbox">Xem phim
+                <input class="sothich" type="checkbox">Nghe <br>
+                <input class="sothich" type="checkbox">Đá bóng
+                <input class="sothich" type="checkbox">May vá <br>
+                <input class="sothich" type="checkbox" onchange="hien_thi(this)">Sở thích khác
+            </div>
+            <div id="error6" class="error"></div>
+            </p>
+            <p id="st_khac" style="display: none;">
+                <input type="text">
+            </p>
+            <button type="submit">Đăng kí</button>
+        </form>
+    </div>
+    <script>
+        function hien_thi(objChk) {
+            if (objChk.checked) {
+                document.querySelector("#st_khac").style.display = "block";
+            } else {
+                document.querySelector("#st_khac").style.display = "none";
+                document.querySelector("#st_khac").value = "";
+            }
+        }
+        function kiem_tra() {
+            var ho = document.getElementById("ho");
+            var ten = document.getElementById("ten");
+            var ngay = document.getElementById("ngay");
+            var thang = document.getElementById("thang");
+            var nam = document.getElementById("nam");
+            var gt = document.getElementsByName("gt");
+            var sdt = document.getElementById("sdt");
+            var sothich = document.getElementsByClassName("sothich");
+            //======
+            var error1 = document.getElementById("error1");
+            var error2 = document.getElementById("error2");
+            var error3 = document.getElementById("error3");
+            var error4 = document.getElementById("error4");
+            var error5 = document.getElementById("error5");
+            var error6 = document.getElementById("error6");
+            //=======
+
+            // kiểm tra Họ
+            if (ho.value.length == 0) {
+                ho.style.border = "1px solid red";
+                error1.innerHTML = "Họ không được để trống!";
+                return false;
+            } else {
+                ho.style.border = "";
+                error1.innerHTML = "";
+            }
+
+            // kiểm tra Tên
+            if (ten.value.length == 0) {
+                ten.style.border = "1px solid red";
+                error2.innerHTML = "Tên không được để trống!";
+                return false;
+            } else {
+                ten.style.border = "";
+                error2.innerHTML = "";
+            }
+
+            // kiểm tra ngày sinh 
+            // kiểm tra ngày
+            if (ngay.value == 0) {
+                ngay.style.border = "1px solid red";
+                error3.innerHTML = "Ngày không được để trống!";
+                return false;
+            } else {
+                ngay.style.border = "";
+                error3.innerHTML = "";
+            }
+            //kiểm tra tháng
+            if (thang.value == 0) {
+                thang.style.border = "1px solid red";
+                error3.innerHTML = "Tháng không được để trống!";
+                return false;
+            } else {
+                thang.style.border = "";
+                error3.innerHTML = "";
+            }
+            //kiểm tra năm
+            if (nam.value == 0) {
+                nam.style.border = "1px solid red";
+                error3.innerHTML = "Năm không được để trống!";
+                return false;
+            } else {
+                nam.style.border = "";
+                error3.innerHTML = "";
+            }
+
+            //kiểm tra giới tính
+            if (gt[0].checked !== true & gt[1].checked !== true) {
+                error4.innerHTML = "Bạn chưa chọn giới tính!";
+                return false;
+            } else {
+                error4.innerHTML = "";
+            }
+
+            // kiểm tra số điện thoại
+            if (isNaN(sdt.value)) {
+                sdt.style.border = "1px solid red";
+                error5.innerHTML = "vui lòng nhập số !";
+                return false;
+
+            } else if (parseFloat(sdt.value) <= 0) {
+                sdt.style.border = "1px solid red";
+                error5.innerHTML = "vui lòng nhập số dương!";
+                return false;
+            } else if (sdt.value.length > 11) {
+                sdt.style.border = "1px solid red";
+                error5.innerHTML = "vui lòng nhập số điện thoại có 10 - 11 chữ số!";
+                return false;
+            } else if (sdt.value.length < 10) {
+                sdt.style.border = "1px solid red";
+                error5.innerHTML = "Vui lòng nhập số điện thoại có 10 - 11 chữ số!";
+                return false;
+            } else {
+                sdt.style.border = "";
+                error5.innerHTML = "";
+            }
+
+            // kiểm tra sơ thích
+            var st = 0;
+            for (var i = 0; i < sothich.length; i++) {
+                if (sothich[i].checked == true) {
+                    st++;
+                }
+            }
+            if (st == 0) {
+                error6.innerHTML = "Bạn phải chọn ít nhất 1 sở thích!";
+                return false;
+            } else {
+                error6.innerHTML = "";
+            }
+
+
+            alert("Chúc mừng bạn đã đăng kí thành công");
+            return true;
+        }
+    </script>
+</body>
+
+</html>

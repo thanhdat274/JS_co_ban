@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="Openwwin()">Mở cửa sổ mới</button>
+    <button onclick="closewin()">Đóng cửa số mới</button>
+    <button onclick="kiemtra()">Kiểm tra cửa sổ mới đã đúng hay chưa</button>
+    <script>
+        var KT = 0;
+
+        function Openwwin() {
+            a = window.open("https://www.facebook.com/","width=150px, height = 150px");
+
+        }
+        function closewin(){
+            a.close();
+            KT +=1;
+        }
+        function kiemtra(){
+            if(KT == 0){
+                alert("Cửa số chưa được đóng");
+            }else{
+                alert("Cửa số đã được đóng");
+            }
+            KT = 0;
+        }
+    </script>
+</body>
+
+</html>

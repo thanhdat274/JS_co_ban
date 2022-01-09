@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        họ tên <input type="text" id="hoten"> <br>
+        phone <input type="number" id="phone"> <br>
+        <button type="button" onclick="Nhap()">Ok</button>
+    </form>
+
+    <script>
+        function Nhap(){
+            var hoten = document.querySelector("#hoten").value;
+            var phone = document.querySelector("#phone").value;
+            window.opener.document.querySelector("#doanvan").innerHTML = "xin chào"+hoten;
+        }
+
+        setTimeout(() =>{
+            window.location.assign("https://dantri.com.vn");
+        }, 5000);
+
+
+        //-- kiểm tra người dung vào web không phải https thì tự đọng chuyển trang sang https:
+        // https:
+
+        if(window.location.protocol != 'https')
+            window.location.assign("https://127.0.0.1:5500/bh9/nhap.html");
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+
+<body>
+    <script>
+        var arr = [];
+        var n = prompt("Nhập vào n: ");
+        var tong = 0;
+        for (var i = 0; i < n; i++) {
+            arr[i] = prompt("nhập phần tử " + i);
+            if (isNaN(arr[i]) == false) tong += Number(arr[i]);
+        }
+        document.write("Tổng là: "+tong);
+    </script>
+</body>
+
+</html>

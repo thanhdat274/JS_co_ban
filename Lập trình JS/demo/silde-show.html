@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="loadImg1();">
+    <img src="anh/slide1.jpg" alt="">
+    <p>
+        <button onclick="_first()">First</button>
+        <button onclick="_back()">Back</button>
+        <button onclick="_play()">Play</button>
+        <button onclick="_stop()">Stop</button>
+        <button onclick="_next()">Next</button>
+        <button onclick="_last()">Last</button>
+    </p>
+    <script>
+        // cách 1:
+        var arrImg1 = [];
+        function loadImg1() {
+            for (var i = 0; i < 4; i++) {
+                arrImg1[i] = new Image();
+                arrImg1.src = "anh/slide" + (i + 1) + ".jpg";
+            }
+        }
+        // cách 2
+        var arrImg2 = ['anh/slide1.jpg', 'anh/slide2.jpg', 'anh/slide3.jpg', 'anh/slide4.jpg'];
+        ///------------
+        var hinh = document.querySelector("img");
+        var current_index = 0;
+        function _first() {
+            current_index = 0;
+            hinh.src = arrImg2[current_index];
+        }
+        function _last() {
+            current_index = arrImg2.length - 1;
+            hinh.src = arrImg2[current_index];
+        }
+        function _next() {
+            // if (current_index == arrImg2.length) {
+            //     current_index =0;
+            // }
+            current_index++;
+            if (current_index == arrImg2.length) {
+                current_index =0;
+            }
+            hinh.src = arrImg2[current_index];
+        }
+        function _back() {
+            current_index--;
+            if (current_index < 0) {
+                current_index = arrImg2.length - 1;
+            }
+            hinh.src = arrImg2[current_index];
+        }
+        var t=0;
+        function _play() {
+            clearInterval(t);  
+            t = setInterval(function(){
+                _next();
+            }, 1000);
+        }
+        function _stop() {
+            clearInterval(t);   
+        }
+    </script>
+</body>
+
+</html>

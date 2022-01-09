@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nut-xoa{
+            color: red;
+            padding: 5px;
+            background-color: yellow;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Cải tiến có chức năng xóa</h2>
+    Họ tên <input type="text" id="hoten"/> 
+    <button onclick="Them()">Thêm</button>
+    <h3>Danh sách</h3>
+    <ol id="ds">
+        <!-- <li>NVA</li> -->
+    </ol>
+    <script>
+        function Them(){
+            // lấy dữ liệu trong textbox
+            var ht = document.querySelector("#hoten").value;
+            // tạo phần tử li
+            var the_li = document.createElement("LI");
+            the_li.innerHTML = ht;
+            // cải tiến: tạo thêm nút xóa ở trong LI
+            var the_span = document.createElement("span");
+            the_span.innerText = "X";
+            the_span.setAttribute("class", "nut-xoa");
+            the_span.onclick = function (){
+                this.parentNode.remove();// xóa phần tử cha chính là li
+            }
+            // gắn thẻ span vào li
+            the_li.appendChild(the_span);
+
+
+            // đưa li vào thẻ OL
+            document.querySelector("#ds").appendChild(the_li);
+        }
+
+    </script>
+</body>
+</html>

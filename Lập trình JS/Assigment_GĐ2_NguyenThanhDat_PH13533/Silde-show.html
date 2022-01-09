@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bộ sưu tầm ảnh</title>
+    <link rel="stylesheet" href="css/slide-show.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div id="active" class="book1">
+                <a href="Silde-show.html">Bộ sưu tập ảnh</a>
+            </div>
+
+            <div class="book">
+                <a href="Dang-ki.html">Đăng kí thông tin</a>
+            </div>
+
+            <div class="book">
+                <a href="ban-hang.html">Quản lý sản phẩm</a>
+            </div>
+        </header>
+        <div class="connent">
+            <h1 class="tieude">Bộ sưu tập ảnh</h1>
+            <div class="slideshow-container">
+
+                <div class="hop">
+                    <img src="anh/anh0.jpg" class="anh">
+                    <div class="text">1 / 9</div>
+                </div>
+
+                <div class="hop">
+                    <img src="anh/anh1.jpg" class="anh">
+                    <div class="text">2 / 9</div>
+                </div>
+
+                <div class="hop">
+                    <img src="anh/anh2.jpg" class="anh">
+                    <div class="text">3 / 9</div>
+                </div>
+
+                <div class="hop">
+                    <img src="anh/anh3.jpg" class="anh">
+                    <div class="text">4 / 9</div>
+                </div>
+
+                <div class="hop">
+                    <img src="anh/anh4.jpg" class="anh">
+                    <div class="text">5 / 9</div>
+                </div>
+
+                <div class="hop">
+                    <img src="anh/anh5.jpg" class="anh">
+                    <div class="text">6 / 9</div>
+                </div>
+
+                <div class="hop">
+                    <img src="anh/anh6.jpg" class="anh">
+                    <div class="text">7 / 9</div>
+                </div>
+
+                <div class="hop">
+                    <img src="anh/anh7.jpg" class="anh">
+                    <div class="text">8 / 9</div>
+                </div>
+
+                <div class="hop">
+                    <img src="anh/anh8.jpg" class="anh">
+                    <div class="text">9 / 9</div>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        var slideIndex = 1;
+        bst(slideIndex);
+
+        function plusSlides(n) {
+            bst(slideIndex += n);
+        }
+
+        function bst(n) {
+            var i;
+            var slides = document.getElementsByClassName("hop");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

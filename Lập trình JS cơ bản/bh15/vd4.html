@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="objSV in dssv">
+                Mã SV: <span>{{objSV.masv}}</span> 
+                - Họ tên: <b>{{objSV.hoten}}</b> 
+            </li>
+            
+        </ol>
+        <table border="1" cellpadding="10">
+            <tr>
+                <th>Mã SV</th> <th>Họ tên</th>
+            </tr>
+            <tr v-for="objSV in dssv">
+                <td>{{objSV.masv}}</td> <td>{{objSV.hoten}}</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var options ={
+            el: "#app",
+            data:{
+              dssv:[
+                  {masv:"SV1",hoten:"Nguyễn Văn A"},
+                  {masv:"SV2",hoten:"Nguyễn Văn B"},
+                  {masv:"SV3",hoten:"Nguyễn Văn C"},
+                  {masv:"SV4",hoten:"Nguyễn Văn D"},
+
+              ]
+            }
+        }
+        var app = new Vue(options);
+    </script>
+</body>
+</html>

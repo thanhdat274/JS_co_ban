@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            font-size: 14px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Form đăng ký</h1>
+    <form action="" onsubmit="return kiem_tra()">
+        <p>
+            <label for="ho">Họ</label>
+            <input type="text" name="ho" id="ho">
+        <div id="error1" class="error"></div>
+        </p>
+
+        <p>
+            <label for="ten">Tên</label>
+            <input type="text" name="ten" id="ten">
+        <div id="error2" class="error"></div>
+        </p>
+
+
+        <p>
+            <label for="ns">Ngày sinh</label><br>
+            Ngày <input type="number" min="1" max="31" id="ngay">
+            Tháng <input type="number" min="1" max="12" id="thang">
+            Năm <input type="number" min="1900" max="2050" id="nam">
+        <div id="error3" class="error"></div>
+        </p>
+
+
+        <p>
+            <label for="gt">Giới tính</label>
+            <input type="radio" name="gt" id="gt" value="1"><span>Nam</span>
+            <input type="radio" name="gt" id="gt" value="2"><span>Nữ</span>
+        <div id="error4" class="error"></div>
+        </p>
+
+        <p>
+            <label for="">Số điện thoại</label>
+            <input type="text" name="" id="phone">
+        <div id="error5" class="error"></div>
+        </p>
+
+        <p>
+            <label for="sothich">Sở thích: </label>
+            <input id="sothich" type="checkbox">Đọc sách
+            <input id="sothich" type="checkbox">Xem phim
+            <input id="sothich" type="checkbox">Nghe <br>
+            <input id="sothich" type="checkbox">Đá bóng
+            <input id="sothich" type="checkbox">May vá <br>
+            <input type="checkbox" id="chk-khac" onchange="showHide(this)">Khác 
+            <input type="text" name="" id="st_khac" style="display: none;">
+        <div id="error6" class="error"></div>
+        </p>
+
+        <button>Đăng kí</button>
+    </form>
+    <script>
+        function kiem_tra() {
+            // kiểm tra họ
+            var ho = document.getElementById("ho");
+            var error1 = document.getElementById("error1");
+            if (ho.value.length == 0) {
+                ho.style.border = "1px solid red";
+                error1.innerHTML = "Họ không được để trống!";
+                return false;
+            } else {
+                ho.style.border = "none";
+                error1.innerHTML = "";
+            }
+
+            // kiểm tra tên
+            var ten = document.getElementById("ten");
+            var error2 = document.getElementById("error2");
+            if (ten.value.length == 0) {
+                ten.style.border = "1px solid red";
+                error2.innerHTML = "Tên không được để trống!";
+                return false;
+            } else {
+                ten.style.border = "none";
+                error2.innerHTML = "";
+            }
+
+            // kiểm tra ngày sinh
+            // kiểm tra ngày
+            var ngay = document.getElementById("ngay");
+            var error3 = document.getElementById("error3");
+            if (ngay.value.length == 0) {
+                ngay.style.border = "1px solid red";
+                error3.innerHTML = "Ngày sinh không được để trống!";
+                return false;
+            } else {
+                ngay.style.border = "none";
+                error3.innerHTML = "";
+            }
+            // kiểm tra tháng
+            var thang = document.getElementById("thang");
+            var error3 = document.getElementById("error3");
+            if (thang.value.length == 0) {
+                thang.style.border = "1px solid red";
+                error3.innerHTML = "Tháng sinh không được để trống!";
+                return false;
+            } else {
+                thang.style.border = "none";
+                error3.innerHTML = "";
+            }
+            // kiểm tra năm
+            var nam = document.getElementById("nam");
+            var error3 = document.getElementById("error3");
+            if (nam.value.length == 0) {
+                nam.style.border = "1px solid red";
+                error3.innerHTML = "Năm sinh không được để trống!";
+                return false;
+            } else {
+                nam.style.border = "none";
+                error3.innerHTML = "";
+            }
+
+
+            // kiểm tra số điện thoại
+            var phone = document.getElementById("phone");
+            var error5 = document.getElementById("error5");
+            if (isNaN(phone.value)) {
+                phone.style.border = "1px solid red";
+                error5.innerHTML = "vui lòng nhập số !";
+                return false;
+
+            } else if (parseFloat(phone.value) <= 0) {
+                phone.style.border = "1px solid red";
+                error5.innerHTML = "vui lòng nhập số dương!";
+                return false;
+            } else if (phone.value.length > 11) {
+                phone.style.border = "1px solid red";
+                error5.innerHTML = "vui lòng nhập số điện thoại có 10 chữ số!";
+                return false;
+            } else if (phone.value.length < 10) {
+                phone.style.border = "1px solid red";
+                error5.innerHTML = "Vui lòng nhập số điện thoại có 10 chữ số!";
+                return false;
+            } else {
+                phone.style.border = "none";
+                error5.innerHTML = "";
+            }
+
+            // kiểm tra giới tính
+            var radios = document.getElementsByName("gt");
+            var error4 = document.getElementById("error4");
+            if (!radios[0].checked && !radios[1].checked) {
+                error4.innerHTML = "Vui lòng chọn giới tính!";
+                return false;
+
+            } else {
+                gt.style.border = "none";
+                error4.innerHTML = "";
+            }
+
+            // kiểm tra sở thích
+            var sothich = document.getElementById("sothich");
+            var error6 = document.getElementById("error6");
+            if (sothich.checked == 0) {
+                error6.innerHTML = "Vui lòng chọn một sở thích!";
+                return false;
+            } else {
+                sothich.style.border = "none";
+                error6.innerHTML = "";
+            }
+        }
+        function showHide(objChk) {
+            if (objChk.checked) {
+                document.querySelector("#st_khac").style.display = "block";
+            } else {
+                document.querySelector("#st_khac").style.display = "none";
+                document.querySelector("#st_khac").value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .anh{ border: 1px solid red;}
+    </style>
+</head>
+<body>
+    <p id="doan_van"> 
+        Nội dung đoạn văn
+    </p>
+    <button onclick="XoaTheP()">Xóa thẻ</button>
+    <script>
+        // thêm phần tử vào trang web
+        // tạo 1 phần tử html, truyền vào tên thẻ
+        var new_element = document.createElement("img");
+        new_element.src = "https://gv.poly.edu.vn/images/logo.png";
+        
+        // new_element.setAttribute("width","200");
+        // new_element.setAttribute("height","100");
+        new_element.setAttribute("style","width:100px; height:50px");
+        new_element.setAttribute("class","anh");
+
+        var doan_van = document.querySelector("#doan_van");
+        doan_van.appendChild(new_element);
+
+        function XoaTheP(){
+            // var the_p = document.querySelector("#doan_van");
+            // the_p.remove();
+            document.querySelector("body").remove();
+        }
+
+
+    </script>
+
+</body>
+</html>

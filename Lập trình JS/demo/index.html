@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="loading();">
+    <img src="anh/anh1.jpg" alt="" width="300px" onmouseover="hinh1()" onmouseout="hinh2()">
+    <script>
+        var arrImg = [];
+        function loading(){
+            arrImg[0] = new Image();
+            arrImg[1] = new Image();
+            arrImg[0].src = "anh/anh1.jpg";
+            arrImg[1].src = "anh/anh2.jpg";
+        }
+        function hinh1(){
+            var img = document.getElementsByTagName("img");
+            img[0].src = arrImg[0].src;
+        }
+        function hinh2(){
+            var img = document.querySelector("img");
+            img.src = arrImg[1].src;
+        }
+
+    </script>
+</body>
+</html>

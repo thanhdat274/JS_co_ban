@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0;
+}
+
+.wrapper {
+  width: 980px;
+  margin: auto;
+}
+
+.header {
+  height: 80px;
+  padding: 10px;
+  margin-top: 2px;
+}
+
+.book {
+  width: 307px;
+  float: left;
+  text-align: center;
+  line-height: 60px;
+  background: #fff;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+
+.book a {
+  color: #000;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+}
+
+.book1 {
+  width: 307px;
+  float: left;
+  text-align: center;
+  line-height: 60px;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
+.book1 a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+}
+
+.book a:hover {
+  background: #000;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.book1 a:hover {
+  background: #000;
+  color: #fff;
+  border-radius: 10px;
+}
+
+#active {
+  background: #000;
+}
+
+/* phần connent */
+
+.connent {
+  width: 980px;
+  margin: auto;
+  border: 1px solid #000;
+}
+
+.tieude {
+  text-align: center;
+  margin: 20px;
+}
+.hop {
+  margin: 0 20px;
+}
+
+table {
+  width: 70%;
+  font-size: 16px;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+th {
+  height: 40px;
+  background-color: rgb(85, 186, 233);
+  color: white;
+}
+.gl {
+  text-align: center;
+}
+.tt {
+  text-align: right;
+}

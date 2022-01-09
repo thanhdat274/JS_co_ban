@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box-slide {
+            width: 250px;
+            height: 200px;
+            border: 1px solid blue;
+            overflow: hidden;
+            opacity: 0.6;
+        }
+
+        #title {
+            background: yellow;
+            padding: 5px;
+            position: relative;
+            bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box-slide">
+        <img src="anh/a1.png" width="250" height="200" id="slide">
+        <div id="title">Tiêu đề ảnh</div>
+    </div>
+
+    <button onclick="Play()">Play</button>
+    <button onclick="Pause()">Pause</button>
+    <button onclick="Prew()">Prew</button>
+    <button onclick="Next()">Next</button>
+
+    <script>
+        var slide = document.querySelector("#slide");
+        var ds_link_anh = ["anh/a1.png", "anh/a2.jpg", "anh/a3.jpg", "anh/a4.png"];
+        var stt = 0;
+        var list_obj_img = [];
+        function initSlide() {
+            for (i = 0; i < ds_link_anh.length; i++) {
+                list_obj_img[i] = new Image(); // tạo đối tượng ảnh và gắn vào mảng
+                list_obj_img[i].src = ds_link_anh[i]; //gán src cho dodoois tượng vừa tạo ra
+
+            }
+        }
+
+        function Next() {
+            stt++;
+            if (stt == ds_link_anh.length)
+                stt = 0;
+            slide.setAttribute("src", list_obj_img[stt].src);
+        }
+        function Prew() {
+            stt--;
+            if (stt < 0)
+                stt = ds_link_anh.length - 1;
+            slide.setAttribute("src", list_obj_img[stt].src);
+        }
+
+        function Play() {
+            // slide_intv = setInterval( function() {....}, 1000);
+            slide_intv = setInterval(function () {
+                Next();
+
+            }, 1000);
+            // cách gọi khác 
+            // slide_intv = setInterval(Next,1000);
+        }
+        function Pause() {
+            clearInterval(slide_intv);
+        }
+
+
+        initSlide(); // gọi ahfm load ảnh khi vào trang
+        slide.setAttribute("src", list_obj_img[stt].src); // gán ảnh bằng phần tử đầu tiên
+
+
+    </script>
+</body>
+
+</html>

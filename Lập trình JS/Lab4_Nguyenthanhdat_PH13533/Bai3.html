@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function SinhVien(maSV, hoTen, diem1, diem2) {
+            this.maSV = maSV;
+            this.hoTen = hoTen;
+            this.diem1 = diem1;
+            this.diem2 = diem2;
+            this.diemTB = function () {
+                return (this.diem1 + this.diem2) / 2;
+            }
+        }
+        SinhVien["sv0"] = new SinhVien("Ph134", "Nguyễn Thanh Bình", 5, 7);
+        SinhVien["sv1"] = new SinhVien("Ph132", "Nguyễn Thanh Công", 8, 6);
+        SinhVien["sv2"] = new SinhVien("Ph137", "Nguyễn Thành An", 3, 5);
+
+        var stt = [0, 1, 2];
+        for (var i = 0; i < 2; i++) {
+            for (var j = 1; j < 3; j++) {
+                var a = SinhVien["sv" + i].diemTB();
+                var b = SinhVien["sv" + j].diemTB();
+                if(a<b){
+                    var temp = stt[i];
+                    stt[i] = stt[j];
+                    stt[j]= temp;
+                }
+            }
+            
+        }
+        for (var i =0; i<3;i++) {
+            document.write("Mã sinh viên: " + SinhVien["sv" +stt[i]].maSV + "<br>");
+            document.write("tên sinh viên: " + SinhVien["sv" + stt[i]].hoTen + "<br>");
+            document.write("Điểm Trung bình sinh viên: " + SinhVien["sv" +stt[i]].diemTB() + "<br><br><br>");
+        }
+    </script>
+</body>
+
+</html>

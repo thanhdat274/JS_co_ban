@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng kí thông tin</title>
+    <link rel="stylesheet" href="css/dang-ki.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="book">
+                <a href="Silde-show.html">Bộ sưu tập ảnh</a>
+            </div>
+
+            <div id="active" class="book1">
+                <a href="Dang-ki.html">Đăng kí thông tin</a>
+            </div>
+
+            <div class="book">
+                <a href="ban-hang.html">Quản lý sản phẩm</a>
+            </div>
+        </header>
+        <section class="connent">
+            <h1 class="tieude">ĐĂNG KÍ THÔNG TIN</h1>
+            <hr>
+            <div class="box">
+                <form name="dangki" onsubmit="return kiemtra()">
+                    <label for="mane">Họ và tên</label>
+                    <input type="text" name="name" id="name" placeholder="Họ và Tên">
+                    <div id="error1" class="error"></div>
+
+                    <label for="NS">Ngày sinh</label>
+                    <input type="text" name="ns" id="ns" placeholder="DD/MM/YYYY">
+                    <div id="error2" class="error"></div>
+
+                    <label for="GT">Giới tính</label>
+                    <div class="hop">
+                        <input type="radio" name="GT"><span>Nam</span>
+                        <input type="radio" name="GT"><span>Nữ</span>
+                    </div>
+                    <div id="error3" class="error"></div>
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <div id="error4" class="error"></div>
+
+                    <label for="">Số điện thoại </label>
+                    <input type="text" name="sdt" id="sdt" placeholder="Số điện thoại">
+                    <div id="error5" class="error"></div>
+
+                    <label for="qq">Quê quán </label>
+                    <select name="qq" id="qq">
+                        <option value="0">----- Vui lòng chọn -----</option>
+                        <option value="1">Hà Đông, Hà Nội</option>
+                        <option value="2">Thạch Thất, Hà Nội</option>
+                        <option value="3">Vĩnh Bảo, Hài Phòng</option>
+                    </select>
+                    <div id="error6" class="error"></div>
+
+                    <label for="subject">Sở thích </label>
+                    <div class="hop">
+                        <input class="sothich" type="checkbox"><span>Nghe nhạc</span>
+                        <input class="sothich" type="checkbox"><span>Đọc sách</span>
+                        <input class="sothich" type="checkbox"><span>Thể thao</span>
+                        <input class="sothich" type="checkbox"><span>Sở thích khác</span>
+                    </div>
+                    <div id="error7" class="error"></div>
+
+                    <button>Gửi thông tin</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+
+    <script>
+        function kiemtra() {
+            var name = document.getElementById("name");
+            var ns = document.getElementById("ns");
+            var GT = document.getElementsByName("GT");
+            var email = document.getElementById("email");
+            var sdt = document.getElementById("sdt");
+            var qq = document.getElementById("qq");
+            var sothich = document.getElementsByClassName("sothich");
+            //--------------
+            var error1 = document.getElementById("error1");
+            var error2 = document.getElementById("error2");
+            var error3 = document.getElementById("error3");
+            var error4 = document.getElementById("error4");
+            var error5 = document.getElementById("error5");
+            var error6 = document.getElementById("error6");
+            var error7 = document.getElementById("error7");
+
+
+            // kiểm tra phần họ và tên
+            if (name.value.length == "") {
+                name.style.border = "1px solid red";
+                error1.innerHTML = "Họ tên không được để trống!";
+                return false;
+            } else {
+                name.style.border = "";
+                error1.innerHTML = "";
+            }
+
+            // kiểm tra ngày sinh
+            var regex = /^\d{2}.\d{2}.\d{4}$/;
+            if (regex.test(ns.value) == false) {
+                ns.style.border = "1px solid red";
+                error2.innerHTML = "Ngày sinh không được để trống!";
+                return false;
+            } else {
+                ns.style.border = "";
+                error2.innerHTML = "";
+            }
+
+            // kiểm tra giới tính
+            if (GT[0].checked !== true & GT[1].checked !== true) {
+                error3.innerHTML = "Bạn chưa chọn giới tính!";
+                return false;
+            } else {
+                error3.innerHTML = "";
+            }
+
+            // kiếm tra email
+            var regex = /^\w+@\w+\.\w+$/;
+            if (regex.test(email.value) == false) {
+                email.style.border = "1px solid red";
+                error4.innerHTML = "Email không được để trống!";
+                return false;
+            } else {
+                email.style.border = "";
+                error4.innerHTML = "";
+            }
+
+            // kiểm tra số điện thoại
+            var regex = /^0\d{9}$/;
+            if (regex.test(sdt.value) == false) {
+                sdt.style.border = "1px solid red";
+                error5.innerHTML = "Số điện thoại không được để trống!";
+                return false;
+            } else {
+                sdt.style.border = "";
+                error5.innerHTML = "";
+            }
+
+            // kiểm tra quê quán
+            if (qq.value == 0) {
+                qq.style.border = "1px solid red";
+                error6.innerHTML = "Bạn chưa chọn quốc tịch";
+                return false;
+            } else {
+                qq.style.border = "";
+                error6.innerHTML = "";
+            }
+            
+            // kiểm tra sở thích
+            var st = 0;
+            for (var i = 0; i < sothich.length; i++) {
+                if (sothich[i].checked == true) {
+                    st++;
+                }
+            }
+            if (st == 0) {
+                error7.innerHTML = "Bạn phải chọn ít nhất 1 sở thích!";
+                return false;
+            } else {
+                error7.innerHTML = "";
+            }
+
+        }
+    </script>
+</body>
+
+</html>

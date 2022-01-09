@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 300px;
+            margin: auto;
+
+        }
+        h1{
+            text-align: center;
+        }
+        .error {
+            font-size: 14px;
+            color: red;
+        }
+        button{
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>ĐẶT HÀNG</h1>
+        <form onsubmit="return kiem_tra()">
+            <p>
+                <label>Sản phẩm: </label>
+                <input type="text" id="sp">
+            <div id="error1" class="error"></div>
+            </p>
+            <p>
+                <label>Loại: </label>
+                <select id="loai" name="loai">
+                    <option value="0">Chọn loại</option>
+                    <option value="1">Loại 1</option>
+                    <option value="2">Loại 2</option>
+                    <option value="3">Loại 2</option>
+                </select>
+            <div id="error2" class="error"></div>
+            </p>
+            <p>
+                <label>Đơn giá: </label>
+                <input type="text" id="dg">
+            <div id="error3" class="error"></div>
+            </p>
+            <p>
+                <label>Nơi nhận hàng</label>
+                <input type="radio" name="dc" onclick="hien_thi(false)" />Nội thành
+                <input type="radio" name="dc" onclick="hien_thi(true)" />Ngoại thành
+            <div id="error4" class="error"></div>
+            </p>
+            
+            <p id="phi_vc" style="display: none;">
+                <label for="">Phí vận chuyển</label>
+                <input type="text" value="100000" readonly>
+
+            </p>
+            <hr>
+            <button type="submit">Đặt mua</button>
+        </form>
+    </div>
+
+    <script>
+        function hien_thi(visible) {
+            var phi_vc = document.getElementById("phi_vc");
+            phi_vc.style.display = visible ? "" : "none";
+        }
+
+        function kiem_tra() {
+            var sp = document.getElementById("sp");
+            var loai = document.getElementById("loai");
+            var dg = document.getElementById("dg");
+            var dc = document.getElementsByName("dc");
+            ///===========
+            var error1 = document.getElementById("error1");
+            var error2 = document.getElementById("error2");
+            var error3 = document.getElementById("error3");
+            var error4 = document.getElementById("error4");
+
+
+            // kiểm tra nhập tên sản phẩm
+            if (sp.value == 0) {
+                sp.style.border = "1px solid red";
+                error1.innerHTML = "Bạn chưa nhập tên sản phẩm";
+                return false;
+            } else {
+                sp.innerHTML = "";
+                error1.innerHTML = "";
+            }
+
+            // kiểm tra phần chọn loại
+            if (loai.value == 0) {
+                error2.innerHTML = "Bạn chưa nhập tên sản phẩm";
+                return false;
+            } else {
+                error2.innerHTML = "";
+            }
+
+            // kiểm tra đơn giá
+            if (dg.value == "") {
+                dg.style.border = "1px solid red";
+                error3.innerHTML = "Bạn chưa nhập số!";
+                return false;
+            } else if (isNaN(dg.value)) {
+                dg.style.border = "1px solid red";
+                error3.innerHTML = "Bạn đang nhập không phải là số, mời bạn nhập lại";
+                return false;
+            }
+            else if (parseFloat(dg.value) <= 0) {
+                dg.style.border = "1px solid red";
+                error3.innerHTML = "Bạn đang nhập số nhỏ hơn 0 mời bạn nhập lại";
+                return false;
+            } else {
+                dg.innerHTML = "";
+                error3.innerHTML = "";
+            }
+            // kiểm tra dịa chỉ
+            if (dc[0].checked !== true & dc[1].checked !== true) {
+                error4.innerHTML = "Bạn chưa chọn địa chỉ nhận hàng";
+                return false;
+            } else {
+                error4.innerHTML = "";
+            }
+
+            document.write("Chúc mừng bạn đã nhập đúng");
+            return true;
+        }
+    </script>
+</body>
+
+</html>

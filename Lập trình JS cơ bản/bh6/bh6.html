@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        do {
+            var x = prompt("Hãy chọn chức năng \n1.CN1\n2.CN2\n3.CN3");
+            x = Number(x);
+        } while (x != 1 && x != 2 && x != 3)
+
+        switch (x) {
+            case 1:
+                document.write("Bạn đã chọn chức năng 1");
+                break;
+            case 2:
+                document.write("Bạn đã chọn chức năng 2");
+                break;
+            case 3:
+                document.write("Bạn đã chọn chức năng 3");
+                break;
+            default:
+                document.write("CHức năng bạn chọn ko có");
+        }
+    </script>
+</body>
+
+</html>

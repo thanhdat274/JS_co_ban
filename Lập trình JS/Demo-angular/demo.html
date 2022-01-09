@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <!-- <div ng-controller="myCtrl">
+        Tên <input type="text" name="" id="" ng-model="name">
+        <p>
+            Xin chào: {{name}}
+        </p>
+    </div>
+    <script>
+        // Tạo ứng dụng
+        var app = angular.module("myApp",[]);
+        // Tạo controller
+        app.controller("myCtrl", function($scope){
+            $scope.name = "";
+        });
+    </script> -->
+
+    <!-- <div ng-controller="myCtrl">
+        Số 1 <input type="text" ng-model="so1"> 
+        Số 2 <input type="text" ng-model="so2">
+        <p>
+            Tổng = {{sum()}}
+        </p>
+    </div>
+    <script>
+        var app = angular.module("myApp",[]);
+        app.controller("myCtrl", function($scope){
+        $scope.so1 = 0;
+            $scope.so2 = 0;
+            $scope.sum = function(){
+                return Number($scope.so1) + Number($scope.so2);
+            }
+    
+        });
+    </script> -->
+
+    <div ng-controller="myCtrl">
+        <p>
+            Name <input type="text" ng-model="ten">
+        </p>
+        <p>
+            Message <input type="text" ng-model="msg"> 
+            <button ng-click="send()">Gửi</button>
+        </p>
+        <p>
+            Dữ liệu hiện thị tại đây
+        </p>
+        <p>
+        <ul ng-repeat="item in mangTinNhan">
+            <li><b>{{item.ten}}</b> : {{item.tt}}</li>
+        </ul>
+        </p>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope) {
+            // khai báo mảng
+            $scope.mangTinNhan = [];
+            $scope.send = function () {
+                var tinNhan = [];
+                tinNhan.ten = $scope.ten;
+                tinNhan.tt = $scope.msg;
+                //push : thêm 1 phần tử vào cuối mảng
+                $scope.mangTinNhan.push(tinNhan);
+            }
+        });
+    </script>
+</body>
+
+</html>

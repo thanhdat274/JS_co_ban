@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>ĐĂNG KÍ KHÓA HỌC ONLINE</h1>
+    <form action="" onsubmit="return kiemtra()">
+        <p>
+            <label for="hoten">HỌ TÊN: </label>
+            <input type="text" name="hoten" id="hoten">
+        </p>
+        <p>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email">
+        </p>
+        <p>
+            <label for="">Số điện thoại</label>
+            <input type="text" name="" id="sdt">
+        </p>
+        <p>
+            <label for="usename">User</label>
+            <input type="text" name="user" id="user">
+        </p>
+        <p>
+            <label for="pass">Pass</label>
+            <input type="password" name="pass" id="pass">
+        </p>
+        <p>
+            <label for="pass">Repass</label>
+            <input type="password" name="repass" id="repass">
+        </p>
+        <p>
+            <label for="">Bạn biết chúng tôi: </label>
+            <input type="checkbox" id=""> Bạn giới thiệu 
+            <input type="checkbox" id="">Qua FB
+        </p>
+        <button>Đăng kí</button>
+    </form>
+
+    <script>
+        function kiemtra(){
+            var hoten= document.getElementById("hoten");
+            if(hoten.value.length == 0){
+                alert("Vui lòng nhập họ và tên!");
+                return false;
+            }
+
+            var email = document.getElementById("email");
+            if(email.value.length == 0){
+                alert("Vui lòng nhập email!");
+                return false;
+            }
+
+            var sdt = document.getElementById("sdt");
+            if(sdt.value.length == 0){
+                alert("Vui lòng nhập số điện thoại!");
+                return false;
+            }
+
+            var user = document.getElementById("user");
+            if(user.value.length == 0){
+                alert("Vui lòng điền tên đăng nhập!");
+                return false;
+            }else if(user.value.length <=8){
+                alert("Vui lòng nhập ít nhát 8 kí tự!");
+                return false;
+            }
+            var pass = document.getElementById("pass");
+            if(pass.value.length == 0){
+                alert("Vui lòng nhập mật khẩu!");
+                return false;
+            }
+            var repass = document.getElementById("repass");
+            if(repass.value.length == 0){
+                alert("Vui lòng ko để ô trống!");
+                return false;
+            }else if(repass.value.length != pass.value.length){
+                alert("Mật khẩu ko giống nhau!");
+                return false;
+            }else{
+                alert("Mật khẩu đã giống nhau!");
+            }
+        }
+    </script>
+</body>
+
+</html>

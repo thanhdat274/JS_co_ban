@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        Username: <input type="text" id="uname" onfocus="getFocus(this)" onblur="lostFocus(this)" />
+        <span id="sp1"></span> <br>
+
+        Password: <input type="password" id="pwd" onfocus="getFocus(this)" onblur="lostFocus(this)" />
+        <span id="sp2"></span>
+        <br>
+
+        <button type="button" onclick="DangNhap()">Login</button>
+    </form>
+    <script>
+        function DangNhap() {
+
+            var _u = document.querySelector("#uname").value;
+            var _pass = document.querySelector("#pwd").value;
+
+            if (_u == 'admin' && _pass == '123') {
+                alert("Đăng nhập thành công");
+            } else {
+                alert("Sai thông tin đăng nhập");
+            }
+        }
+        function getFocus(obj) {
+            obj.style.background = "yellow";
+            obj.style.border = "1px solid red"
+            obj.style.outline = "none";
+        }
+
+        function lostFocus(obj) {
+            obj.style.background = "white";
+            obj.style.border = "1px solid #ccc";
+            obj.style.outline = "none";
+
+            // Kiểm tra user name
+            if (obj.id == 'uname') {
+                if (obj.value == 'admin') {
+                    document.querySelector("#sp1").innerHTML = "OK";
+                    document.querySelector("#sp1").style.color = "green";
+                }
+                else {
+                    document.querySelector("#sp1").innerHTML = "Sai username";
+                    document.querySelector("#sp1").style.color = "red";
+                }
+
+            } else if (obj.id == '#pab') {
+                if (obj.value == '123') {
+                    document.querySelector("#sp2").innerHTML = "ok";
+                    document.querySelector("#sp2").style.color = "green";
+                } else {
+                    document.querySelector("#sp2").innerHTML = "Sai password";
+                    document.querySelector("#sp2").style.color = "red";
+                }
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

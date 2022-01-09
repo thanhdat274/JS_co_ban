@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var sodien= prompt("Mời bạn nhập số điện tiêu thụ hàng tháng: ")
+        sodien= Number(sodien);
+        var tiendien;
+        var bac1 = 1.678;
+        var bac2 = 1.734;
+        var bac3 = 2.014;
+        var bac4 = 2.536;
+        var bac5 = 2.834;
+        var bac6 = 2.927;
+        if(sodien<=50){
+            tiendien = sodien*bac1;
+        }else if(sodien<=100){
+            tiendien = sodien*bac2;
+        }else if(sodien<=200){
+            tiendien = sodien*bac3;
+        }else if(sodien<=300){
+            tiendien = sodien*bac4;
+        }else if(sodien<=400){
+            tiendien = sodien*bac5;
+        }else if(sodien>400){
+            tiendien = sodien*bac6;
+        }
+        document.write("Số tiền điện phải đóng là:  "+ tiendien);
+    </script>
+</body>
+</html>

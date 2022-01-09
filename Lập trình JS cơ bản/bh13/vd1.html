@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Đăng ký</h1>
+    <form action="" method="get" onsubmit="return true">
+        họ tên <input type="text" name="hoten" id="hoten"><br>
+        Giới tính <input type="radio" name="gt" id="gt" value="1">Nam
+        <input type="radio" name="gt" id="gt" value="2">Nữ
+        <br>
+        Khoa học <select id="kh">
+            <option value="1">Lập trình</option>
+            <option value="2">Đồ họa</option>
+            <option value="3">Marketing</option>
+        </select><br>
+        Sở thích <input type="checkbox" name="sothich" value="1">Bóng đá <br>
+        <input type="checkbox" name="sothich" value="2">Bóng bàn <br>
+        <input type="checkbox" name="sothich" value="3">Bóng rổ <br>
+
+
+        <button type="submit" onclick="Check()">Đăng kí</button>
+    </form>
+    <script>
+        function Check() {
+            // lấy dữ liệu từ checkbox
+            var ds_checkbox = document.getElementsByName("sothich");
+            var chon_sothich = [];
+            for(i = 0; i<ds_checkbox.length;i++){
+                if(ds_checkbox[i].checked){
+                    chon_sothich.push( ds_checkbox[i].value );
+                }
+            }
+            console.log("Sở thích đã chọn: ");
+            console.log(chon_sothich);
+
+
+            // lấy thông tin từ selecttion
+            var kh = document.querySelector("#kh").value;
+            console.log("Bạn đã chọn khóa học: " + kh);
+            // lấy thông tin từ textbox:
+            var hoten = document.querySelector("#hoten").value;
+            var gioitinh = document.getElementsByName("gt");
+            var gt_chon = null; // lưu giới tính người dùng chọn
+            console.log(gioitinh)
+            for (i = 0; i < gioitinh; i++) {
+                if (gioitinh[i].checked) {
+                    gt_chon = gioitinh[i].value; // gán giá trị đã chọn
+
+                }
+            }
+            // kết thúc vòng lặp
+            console.log("Giới tính bạn chọn: " + gt_chon);
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 align="center">HÓA ĐƠN</h1>
+    <form action="" onsubmit="return kiemtra()">
+        <p>
+            <label for="">Khách hàng: </label>
+            <input type="text" name="kh" id="kh">
+            <span id="kh"></span>
+        </p>
+        <p>
+            <label for="">Loại hàng: </label>
+            <select name="loai" id="loai">
+                <option></option>
+                <option value="">Loại 1 </option>
+                <option value="">Loại 2 </option>
+                <option value="">Loại 3 </option>
+            </select>
+        </p>
+        <p>
+            <label for="">Đơn giá: </label>
+            <input type="text" name="dongia" id="dongia">
+        </p>
+        <p>
+            <label for="">Số lượng: </label>
+            <input type="text" name="sl" id="sl">
+        </p>
+        <p>
+            <label for="">Thành tiền: </label>
+            <input type="text" name="tien" id="tien">
+        </p>
+        <p>
+            <label for="">Nơi nhận hàng</label>
+            <input type="radio" name="chon" onclick="hien_thi(false)">Nội thành
+            <input type="radio" name="chon" onclick="hien_thi(true)">Ngoại thành
+        </p>
+        <p id="phi_vc" style="display: none;">
+            <label>Phí vân chuyển</label>
+            <input value="30000" readonly>
+        </p>
+        <button>ĐẶT MUA</button>
+    </form>
+
+    <script>
+        function hien_thi(visible) {
+            var phi_vc = document.getElementById("phi_vc");
+            phi_vc.style.display = visible ? "" : "none";
+        }
+        function kiemtra() {
+
+            //kiểm tra tên khách hàng
+            var kh = document.getElementById("kh");
+            if (kh.value.length == 0) {
+                document.querySelector("#kh").innerHTML = "Vui long nhập tên khách hàng!";
+                document.querySelector("#kh").style.color = "red";
+            }
+
+            //kiểm tra đơn giá
+            var dongia = document.getElementById("dongia");
+            if (dongia.value.length == 0) {
+                alert("Vui lòng nhập đơn giá!");
+                return false;
+            }
+
+            //kiểm tra loại hàng
+            var loai = document.getElementById("loai");
+            if (loai.value.length == 0) {
+                alert("Vui lòng chọn loại hàng!");
+                return false;
+            }
+
+            // kiểm tra số lượng
+            var sl = document.getElementById("sl");
+            if (sl.value.length == 0) {
+                alert("Vui lòng nhập số lượng!");
+                return false;
+            }
+
+
+            //kiểm tra địa chị nhận hàng
+            var radios = document.getElementsByName("dia_chi");
+            if (!radios[0].checked && !radios[1].checked) {
+                alert("Vui lòng chọn nơi nhận hàng!");
+                return false;
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // nhập vào giá trị từ bàn phím kiểm tra giá trị đó nếu không là số thì yêu cầu nhập lại
+        //c1:
+        // do {
+        //     var x = prompt("MỜi bạn nhập vào ô trống: ");
+
+        // } while (isNaN(x) )
+
+        // // c2:
+        // while(true){
+        //     var x = prompt("MỜi bạn nhập vào ô trống: ");
+        //     if(isNaN(x) == false) break;
+        // }
+
+        // // nhập mảng 
+        // var x = [];
+        // var n = prompt(" nhập n");
+        // for(var i = 0; i < n; i++){
+        //     x[i] = prompt("nhập phần tử "+ i);
+        // }
+        // console.log(x);
+
+        /// nhập mảng dữ liệu tính tổng các phần tử mảng kiểu số, hiển thị ra ngoài màn hình
+
+        var arr = [];
+        var n = prompt("Nhập vào n: ");
+        var tong = 0;
+        for (var i = 0; i < n; i++) {
+            arr[i] = prompt("nhập phần tử " + i);
+            if (isNaN(arr[i]) == false) tong += Number(arr[i]);
+        }
+        document.write(tong);
+        /// nhập mảng dữ liệu tính tbc các phần tử mảng kiểu số, hiển thị ra ngoài màn hình
+        var arr = [];
+        var n = prompt("Nhập vào n: ");
+        var tbc = 0;
+        var tong = 0;
+        var dem = 0;
+        for (var i = 0; i < n; i++) {
+            arr[i] = prompt("nhập phần tử " + i);
+            if (isNaN(arr[i]) == false) {
+                tong += Number(arr[i]);
+                dem++;
+            }
+        }
+        document.write(tong);
+    </script>
+</body>
+
+</html>

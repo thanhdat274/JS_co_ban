@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="doanvan"></p>
+
+    <button onclick="Openwwin()">Open win</button>
+    <button onclick="Closewwin()">Close win</button>
+    <button onclick="ChangeBG()">Change background </button>
+    <button onclick="ViewScr()">Screen</button>
+    <script>
+        var win;
+        function Openwwin() {
+            win = window.open("nhap.html","_blank", "width=400,height=300");
+            setTimeout(() =>{
+                win.document.body.style.background = "blue";
+            }, 3000);
+        }
+
+
+        function Closewwin(){
+            // bấm nút open trước khi bấm close
+            win.close();
+        }
+        function ChangeBG(){
+            win.document.body.style.background = "yellow";
+        }
+        function ViewScr(){
+            console.log( window.screen );
+            console.log( "chiều cao sử dụng được: "+ window.screen.availHeight );
+            console.log( window.navigator );
+        }
+    </script>
+</body>
+
+</html>
